@@ -4,7 +4,6 @@ import requests
 import urlparse
 from bs4 import BeautifulSoup
 from regex import regex as rgx
-import sqlalchemy
 import urllib
 class lib(object):
     def __init__(self,indexurl='http://202.119.210.15/'):
@@ -127,16 +126,3 @@ class lib(object):
             return result.group(1)
         else:
             return '服务器错误'
-
-if __name__=='__main__':
-    import json,re
-    a=lib()
-    a.login('130302126','130302126')
-    room=json.load(open('room.json'))
-    select={}
-    for i in room:
-        if re.match('408',room['name']):
-            select['roomid']=i['id']
-            select['roomname']=i['name']
-
-
