@@ -50,6 +50,9 @@ class regex(object):
         dic={}
         inputs=sp.findAll('input')
         for i in inputs:
-            dic[i.attrs['name']]=i.attrs['value']
+            try:
+                dic[i.attrs['name']]=i.attrs['value']
+            except KeyError:
+                dic[i.attrs['name']]=''
         return dic
 
